@@ -1,0 +1,493 @@
+/* Tabs */
+.hashTabber-nav {
+	float: left;
+	width: 100%;
+	
+	& > li {
+		float: left;
+		width: 100%;
+		margin: 0;
+		border-bottom: 1px solid #dedede;
+		
+		a {
+			float: left;
+			width: 100%;
+			padding: rem(15) 21px;
+			font-family: 'BebasRegular', Helvetica, Arial, sans-serif;
+			font-size: rem(20);
+			line-height: em(65, 20);
+			text-transform: uppercase;
+			text-decoration: none;
+			color: #3c3c3c;
+			
+			&:hover {
+				text-decoration: none;
+				background: #f3f3f3;
+			}
+		}
+		
+		&.active a {
+			background: #f4f4f4;
+		}
+	}
+	
+	&.top {
+		border-top: 1px solid #c2c2c2;
+		
+		& > li {
+			
+			&.active a {
+				position: relative;
+				background: $accent-color;
+				color: #fff;
+				
+				&:before {
+					position: absolute;
+					bottom: -13px;
+					left: 50%;
+					content: '';
+					width: 0;
+					height: 0;
+					margin-left: -13px;
+					border-style: solid;
+					border-width: 13px 12.5px 0 12.5px;
+					border-color: #0872b8 transparent transparent transparent;
+				}
+			}
+		}
+	}
+}
+
+/* Data */
+.hashTabber-data {
+	float: left;
+	width: 100%;
+	border-bottom: 1px solid #dedede;
+	
+	& > li {
+		display: none;
+	
+		&.active {
+			display: block;
+		}
+	}
+	
+	ul {
+		float: left;
+		width: 100%;
+	}
+}
+
+@media screen and (min-width: $tablet){
+	
+	.hashTabber-nav {
+		z-index: 2;
+		position: relative;
+		margin-bottom: rem(49);
+		border: none;
+		background: #f3f3f3;
+		
+		& > li {
+			float: left;
+			width: 33.333%;
+			border: none;
+			
+			a {
+				padding: rem(13) 0 rem(9);
+				font-size: rem(20);
+				line-height: em(24, 20);
+				background: #f4f4f4;
+			}
+			
+			&.active > a {
+				border-right: 1px solid #eee;
+				border-left: 1px solid #eee;
+				border-bottom: 4px solid #74c043;
+			}
+			
+			&:nth-of-type(1).active a {
+				border-left-color: transparent;
+			}
+			
+			&:nth-last-of-type(1).active a {
+				border-right-color: transparent;
+			}
+		}
+		
+		&.top {
+			margin: 0;
+			border-top: 1px solid #c2c2c2;
+			background: #fff;
+			
+			& > li {
+				width: 50%;
+				
+				a {
+					padding: rem(17) 0;
+					background: #fff;
+				}
+				
+				&.active > a {
+					border-bottom: 0;
+				}
+			}
+		}
+	}
+	
+	.hashTabber-data {
+		z-index: 1;
+		position: relative;
+	}
+}
+// tablet - tabs
+
+@media screen and (min-width: $desktop){
+	
+	.hashTabber-nav {
+		
+		& > li {
+			width: 236px;
+			
+			a {
+				padding: rem(13) 0 rem(11);
+			}
+		}
+		
+		&.top {
+			border: none;
+			
+			& > li {
+				width: 388px;
+				
+				a {
+					padding: rem(16) 0 rem(16);
+					border-top: 1px solid #c2c2c2;
+				}
+							
+				&:nth-of-type(1) {
+					a {
+						border-left: 1px solid #c2c2c2;
+					}
+					
+					&.active > a {
+						border-left-color: transparent;
+					}
+				}
+				
+				&:nth-last-of-type(1) {
+					a {
+						border-right: 1px solid #c2c2c2;
+					}
+					
+					&.active > a {
+						border-right-color: transparent;
+					}
+				}
+			}
+		}
+	}
+}
+// desktop - tabs
+
+/* v1.0.6 */
+/* Core RS CSS file. 95% of time you shouldn't change anything here. */
+.royalSlider {
+	width: 600px;
+	height: 400px;
+	position: relative;
+	direction: ltr;
+}
+
+.royalSlider > * {
+	float: left;
+}
+
+.rsWebkit3d .rsSlide,
+.rsWebkit3d .rsContainer,
+.rsWebkit3d .rsThumbs,
+.rsWebkit3d .rsPreloader,
+.rsWebkit3d img,
+.rsWebkit3d .rsOverflow,
+.rsWebkit3d .rsBtnCenterer,
+.rsWebkit3d .rsAbsoluteEl,
+.rsWebkit3d .rsABlock,
+.rsWebkit3d .rsLink {
+	-webkit-backface-visibility: hidden;
+}
+
+.rsFade.rsWebkit3d .rsSlide,
+.rsFade.rsWebkit3d img,
+.rsFade.rsWebkit3d .rsContainer {
+	-webkit-transform: none;
+}
+
+.rsOverflow {
+	width: 100%;
+	height: 100%;
+	position: relative;
+	overflow: hidden;
+	float: left;
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+.rsVisibleNearbyWrap {
+	width: 100%;
+	height: 100%;
+	position: relative;
+	overflow: hidden;
+	left: 0;
+	top: 0;
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+.rsVisibleNearbyWrap .rsOverflow {
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+
+.rsContainer {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+.rsArrow,
+.rsThumbsArrow {
+	cursor: pointer;
+}
+
+.rsThumb {
+	float: left;
+	position: relative;
+}
+
+.rsArrow,
+.rsNav,
+.rsThumbsArrow {
+	opacity: 1;
+	@include transition (opacity .3s linear);
+}
+
+.rsGCaption {
+	width: 100%;
+	float: left;
+	text-align: center;
+}
+
+/* Fullscreen options */
+.royalSlider.rsFullscreen {
+	position: fixed !important;
+	height: auto !important;
+	width: auto !important;
+	margin: 0 !important;
+	padding: 0 !important;
+	z-index: 2147483647 !important;
+	top: 0 !important;
+	left: 0 !important;
+	bottom: 0 !important;
+	right: 0 !important;
+}
+
+.royalSlider .rsSlide.rsFakePreloader {
+	opacity: 1 !important;
+	@include transition (all .0s linear);
+	display: none;
+}
+
+.rsSlide {
+	position: absolute;
+	left: 0;
+	top: 0;
+	display: block;
+	overflow: hidden;
+	height: 100%;
+	width: 100%;
+}
+
+.royalSlider.rsAutoHeight,
+.rsAutoHeight .rsSlide {
+	height: auto;
+}
+
+.rsContent {
+	width: 100%;
+	height: 100%;
+	position: relative;
+}
+
+.rsPreloader {
+	position: absolute;
+	z-index: 0;
+}
+
+.rsNav {
+	-moz-user-select: -moz-none;
+	-webkit-user-select: none;
+	user-select: none;
+}
+
+.rsNavItem {
+	-webkit-tap-highlight-color: rgba(0, 0, 0, .25);
+}
+
+.rsThumbs {
+	cursor: pointer;
+	position: relative;
+	overflow: hidden;
+	float: left;
+	z-index: 22;
+}
+
+.rsTabs {
+	float: left;
+	background: none !important;
+}
+
+.rsTabs,
+.rsThumbs {
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.rsVideoContainer {
+	width: auto;
+	height: auto;
+	line-height: 0;
+	position: relative;
+}
+
+.rsVideoFrameHolder {
+	position: absolute;
+	left: 0;
+	top: 0;
+	background: #141414;
+	opacity: 0;
+	-webkit-transition: .3s;
+}
+
+.rsVideoFrameHolder.rsVideoActive {
+	opacity: 1;
+}
+
+.rsVideoContainer iframe,
+.rsVideoContainer video,
+.rsVideoContainer embed,
+.rsVideoContainer .rsVideoObj {
+	position: absolute;
+	z-index: 50;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+}
+
+/* ios controls over video bug, shifting video */
+.rsVideoContainer.rsIOSVideo iframe,
+.rsVideoContainer.rsIOSVideo video,
+.rsVideoContainer.rsIOSVideo embed {
+	padding-right: 44px;
+}
+
+.rsABlock {
+	left: 0;
+	top: 0;
+	position: absolute;
+	z-index: 15;	
+}
+
+img.rsImg {
+	max-width: none;
+}
+
+.grab-cursor {
+	cursor: url('../img/common/grab.png') 8 8, move;
+}
+
+.grabbing-cursor{
+	cursor: url('../img/common/grabbing.png') 8 8, move;
+}
+
+.rsNoDrag {
+	cursor: auto;
+}
+
+.rsLink {
+	left: 0;
+	top: 0;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	display: block;
+	z-index: 20;
+	background: url('../img/common/blank.gif');
+}
+
+/* RoyalSlider default skin */
+.rsDefault,
+.rsDefault .rsOverflow,
+.rsDefault .rsSlide,
+.rsDefault .rsVideoFrameHolder,
+.rsDefault .rsThumbs {
+	background: #fff;
+	color: #fff;
+}
+
+.rsDefault .rsArrow {
+	height: 100%;
+	width: 58px;
+	position: absolute;
+	display: block;
+	cursor: pointer;
+	z-index: 21;
+}
+
+.rsDefault.rsVer .rsArrow {
+	width: 100%;
+	height: 95px;
+}
+
+.rsDefault.rsHor .rsArrowLeft { left: 0; top: 0; }
+.rsDefault.rsHor .rsArrowRight { right: 0; top:0; }
+
+.rsDefault .rsArrowIcn {
+	width: 38px;
+	height: 63px;
+	top: 50%;
+	left: 26px;
+	margin: -72px 0 0 -16px;
+	position: absolute;
+	cursor: pointer;
+	border-radius: 2px;
+	background: transparent url('../img/common/sprite_common.png') 0 -1100px no-repeat;
+}
+
+.rsDefault .rsArrowIcn:hover {
+	opacity: .8;
+}
+
+.rsDefault.rsHor .rsArrowRight .rsArrowIcn { background-position: -100px -1100px; }
+.rsDefault .rsArrowDisabled .rsArrowIcn { opacity: .2; filter: alpha(opacity=20);  *display: none; }
+
+@media screen and (min-width: 1061px){
+	.rsDefault .rsArrowIcn {
+		left: 16px;
+		width: 58px;
+		height: 95px;
+		margin-top: rem(-62);
+		background-position: 0 -350px;
+	}
+	
+	.rsDefault.rsHor .rsArrowRight .rsArrowIcn { background-position: -150px -350px; }
+}
+
+.rsDefault .rsPreloader {
+	width: 20px;
+	height: 20px;
+	background-image: url('../img/common/preloader-white.gif');
+	left: 50%;
+	top: 50%;
+	margin-left: -10px;
+	margin-top: -10px;
+}

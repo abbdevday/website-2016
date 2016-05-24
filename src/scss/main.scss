@@ -1,0 +1,24 @@
+/* =========================================================================
+
+    Project: DevDay
+    Author: Ekaterina
+    Last updated: @@timestamp
+@@toc
+
+   ========================================================================= */
+
+// Authored Dependencies
+@import "common/variables";
+@import "common/mixins";
+
+// Common styles & layouts
+@import "common/base";
+@import "common/layout";
+@import "components/components";
+@import "pages/home";
+@import "common/print";
+
+// Components
+body {
+	//max-width: 320px;
+}

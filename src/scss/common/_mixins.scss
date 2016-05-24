@@ -1,0 +1,30 @@
+
+// Mixins
+//------------------------------------------------------------------------------
+
+// Use with @extend %clearfix;
+%clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+@mixin retina-bg($filename, $color, $x, $y, $background-size: null, $extension: png, $retina-filename: null, $asset-pipeline: false) {
+  
+  background: $color url("#{$filename}.#{$extension}") $x $y no-repeat;
+  
+  @include hidpi {
+    @if $retina-filename {
+      background-image: url("#{$retina-filename}.#{$extension}");
+    }
+    @else {
+      background-image: url("#{$filename}@2x.#{$extension}");
+    }
+    @if $background-size{
+    	background-size: $background-size;
+    }
+  }  
+}
+

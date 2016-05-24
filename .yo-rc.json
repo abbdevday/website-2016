@@ -1,0 +1,21 @@
+{
+  "generator-xh": {
+    "config": {
+      "projectName": "DevDay",
+      "authorName": "Ekaterina",
+      "useBranding": false,
+      "reloader": "None",
+      "cssPreprocessor": "scss",
+      "cssPrefix": "_",
+      "ignoreDist": false,
+      "isWP": false,
+      "extension": "html",
+      "features": {
+        "useJquery": true
+      }
+    },
+    "pages": [
+      "“Home”"
+    ]
+  }
+}
