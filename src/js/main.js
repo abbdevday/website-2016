@@ -30,19 +30,19 @@ var Devday = {
   * Init mobile menu
   */
   initMobileMenu: function() {
-  	
+
   	$('.menu-item-has-children').append('<div class="open-menu-link open"></div>');
 		$('.menu-item-has-children').append('<div class="open-menu-link close"></div>');
 		$('.open').addClass('visible');
-		
+
 		$('#menu-btn').click(function(){
 			$('.responsive-menu').slideToggle();
 		});
-	
+
 		$('.open-menu-link').click(function(e){
-		
+
 			var childMenu =  e.currentTarget.parentNode.children[1];
-			
+
 			if($(childMenu).hasClass('visible')){
 				$(childMenu).slideToggle();
 				$(e.currentTarget.parentNode.children[3]).removeClass('visible');
@@ -55,7 +55,7 @@ var Devday = {
 			}
 		});
   },
-  
+
   /* Init Smooth Navigation */
   initSmoothNavigation: function (){
   	$('#navigation').onePageNav({
@@ -66,9 +66,9 @@ var Devday = {
       scrollThreshold: 0.5,
       filter: '',
       easing: 'swing'
-   	});   	
+   	});
   },
-  
+
   /*
   	Add smooth scroll to all buttons
   */
@@ -92,14 +92,14 @@ var Devday = {
 	    }
 	  });
   },
-  
-  /* 
+
+  /*
    * Turn speakers section into grid on tablets
    */
-  createSpeakersLayout: function(){  
-  	
+  createSpeakersLayout: function(){
+
   	if ($('#speakers').length > 0){
-	  	
+
 	  	$.getScript('js/salvatorre.min.js')
 	  	  .done(function(){
 	  	    console.log('Salvatorre.min.js has successfully downloaded!');
@@ -108,7 +108,7 @@ var Devday = {
 	  	  .fail(function() {
 	  	    console.log('Salvatorre.min.js has failed to download.');
 	  		});
-  	
+
 	  	var resizeTimer;
 	  	$(window).resize(function() {
 	  		clearTimeout(resizeTimer);
@@ -116,11 +116,11 @@ var Devday = {
 	  	});
 	  	var _showHide;
   	}
-  	
+
   	// Turn grid layout on/off depending on screen's width
   	// account for 30px of scroll bar on the right (830px breakpoint means 800px needs to be used in resize function)
     function onResize() {
-	    
+
 	    var _winWidth = $(window).width();
 
 	    if (_winWidth < 800){
@@ -130,18 +130,18 @@ var Devday = {
 	    } else if (800 < _winWidth < 1141) {
 	    	$('#grid').attr('data-columns', '');
 	    	reCreateGrid();
-	    	
+
 	    } else if (_winWidth > 1141) {
 	    	$('#grid').attr('data-columns', '');
 	    	reCreateGrid();
-	    }	    
+	    }
 		}
-		
+
 		function reCreateGrid(){
 			removeShowHide();
 			salvattore.rescanMediaQueries();
 		}
-		
+
 		function addShowHide(){
 			if (!_showHide){
 				$('#grid .info').slideUp();
@@ -157,7 +157,7 @@ var Devday = {
 				_showHide = true;
 			}
 		}
-		
+
 		function removeShowHide(){
 			$('#grid .info').slideDown();
 			$('#grid .name').unbind('click')
@@ -166,12 +166,12 @@ var Devday = {
 			_showHide = false;
 		}
   },
-  
+
   /*
   	Add workshops show/hide functionality
   */
   addWorkshopsShowHide: function(){
-	  
+
 	  if ($('#workshops').length > 0){
 	  	$('#workshops .info').slideUp();
 	  	$('#workshops .workshop').bind('click', function(){
@@ -185,15 +185,15 @@ var Devday = {
 	  	});
 	  }
   },
-  
+
   /*
   	Add workshops show/hide functionality
   */
   addScheduleShowHide: function(){
-  	
-  	if ($('#schedule').length > 0){  		
+
+  	if ($('#schedule').length > 0){
 	  	$('#schedule .info').slideUp();
-	  	$('#schedule .lecture').bind('click', function(){
+	  	$('#schedule .lecture.expandable').bind('click', function(){
 	  		if (!$(this).hasClass('opened')) {
 	  			$(this).addClass('opened');
 	  			$(this).find('.info').slideToggle();
@@ -202,10 +202,10 @@ var Devday = {
 	  			$(this).find('.info').slideToggle().parent().find('.top').slideToggle('slow');
 	  			$(this).removeClass('opened');
 	  		}
-	  	});	
+	  	});
 	 	}
   },
-  
+
   /*
    * Init PartnersSlider
    */
@@ -226,14 +226,14 @@ var Devday = {
 		    keyboardNavEnabled: true,
 		    usePreloader: false
 		  });
-  	}	
+  	}
   },
-  
+
   /**
    * Init GMap
    */
   initGMap: function() {
-		
+
 		if ($('#gmap').length > 0){
 			// load GoogleMaps API
 			$.getScript('https://maps.googleapis.com/maps/api/js?key=AIzaSyAshIST6z0Uyp0Xist7-efQWFwqeOVO6Ok')
@@ -244,23 +244,23 @@ var Devday = {
 			  .fail(function() {
 			    console.log('Gmaps.js has failed to download.');
 				});
-				
+
 			var map;
-			
+
 			var coordinates = {
 				lat: 50.07,
 				lng: 19.92
-			};	    	    
-		}   
-		
+			};
+		}
+
 		function initMap() {
-		 
-		  var mapOptions = { 
+
+		  var mapOptions = {
 		 		zoom: 12,
 		    center: new google.maps.LatLng(coordinates),
 		    disableDefaultUI: true
 			};
-			
+
 			var mapElement = document.getElementById('gmap');
 			var map = new google.maps.Map(mapElement, mapOptions);
 			var marker = new google.maps.Marker({
@@ -269,22 +269,22 @@ var Devday = {
 				title: 'Devday',
 				icon: 'img/home/ui_marker.png'
 		 	});
-		 	
+
 		 	var center;
-		 	
+
 		 	$(window).resize(function(){
 		 		center = map.getCenter();
 		 		google.maps.event.trigger(map, 'resize');
 		 		map.setCenter(center);
-		 	});	   	 
-		}     		
+		 	});
+		}
   },
-  
+
   /*
    * Init Tabs
    */
   initTabs: function () {
-  	
+
   	function ProjectInterface() {
       this.run = run;
       function run() {
