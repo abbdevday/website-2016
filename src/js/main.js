@@ -236,7 +236,7 @@ var Devday = {
 
 		if ($('#gmap').length > 0){
 			// load GoogleMaps API
-			$.getScript('https://maps.googleapis.com/maps/api/js?key=AIzaSyAshIST6z0Uyp0Xist7-efQWFwqeOVO6Ok')
+			$.getScript('https://maps.googleapis.com/maps/api/js?key=AIzaSyBJVUz8UZxdRfzmQJj5rqUOOMV5aDO6ALw')
 			  .done(function(){
 			    console.log('GMaps.js has successfully downloaded!');
 			    initMap();
@@ -264,9 +264,9 @@ var Devday = {
 			var mapElement = document.getElementById('gmap');
 			var map = new google.maps.Map(mapElement, mapOptions);
 			var marker = new google.maps.Marker({
-				position: {lat: 50.068, lng: 19.945},
+				position: {lat: 50.089, lng: 19.9845},
 				map: map,
-				title: 'Devday',
+				title: 'DevDay',
 				icon: 'img/home/ui_marker.png'
 		 	});
 
