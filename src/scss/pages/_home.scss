@@ -1500,12 +1500,12 @@
 		}
 
 		// Chrome, Safari
-		@media screen and (-webkit-min-device-pixel-ratio:0) {
-	    .price {
-	    	padding: 0 0 rem(5);
-	    	line-height: em(66, 54);
-	    }
-		}
+		// @media screen and (-webkit-min-device-pixel-ratio:0) {
+	    // .price {
+	    // 	padding: 0 0 rem(5);
+	    // 	line-height: em(66, 54);
+	    // }
+		// }
 
 		p {
 			float: left;
